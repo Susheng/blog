@@ -1,0 +1,5 @@
+make html
+cd output
+git add -A
+git commit -m "blog update"
+git push
