@@ -1,14 +1,12 @@
-Title: My super title
-Date: 2014-05-07 10:20
-Modified: 2010-12-05 19:30
-Category: Python
-Tags: pelican, publishing
-Slug: my-super-post
+Title: Building Static Blog
+Date: 2014-05-08 10:20
+Modified: 2014-05-08 10:20
+Category: Blog
+Tags: Pelican, GitHub, Blog
 Authors: Susheng Shi
-Summary: Short version for index and feeds
+Summary: Let's learn to how build a customized static blog:D
 
-This is the content of my super blog post.
-An h1 header
+In this my first post, let me go through how to build a static Blog using Pelican(https://github.com/getpelican/pelican) + Github like this.
 ------------
 
 Paragraphs are separated by sdfsdfsdfsdfa blank line.
