@@ -32,3 +32,4 @@ RELATIVE_URLS = True
 THEME = 'pelican-svbhack'
 DISQUS_SITENAME = 'susheng'
 PLUGIN_PATH = 'pelican-plugins'
+USER_LOGO_URL = '/images/logo.png'
