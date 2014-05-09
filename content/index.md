@@ -6,128 +6,39 @@ Tags: Pelican, GitHub, Blog
 Authors: Susheng Shi
 Summary: Let's learn to how build a customized static blog:D
 
-In this my first post, let me go through how to build a static Blog using Pelican(https://github.com/getpelican/pelican) + Github like this.
-------------
+In this my first post, let me go through how to build a static Blog using [**Pelican**](https://github.com/getpelican/pelican) + [**Github**](https://github.com/) like this.
 
-Paragraphs are separated by sdfsdfsdfsdfa blank line.
+Why writing this?
+==================
+There are plenty of tutorials on building up static blog, but most of them contain some errors or miss some very important tips.
 
-2nd paragraph. *Italic*, **bold**, `monospace`. Itemized lists
-look like:
+[Chinese](http://www.lizherui.com/pages/2013/08/17/build_blog.html)
+[English](http://blog.xlarrakoetxea.org/posts/2012/10/creating-a-blog-with-pelican/)
 
-  * this one
-  * that one
-  * the other one
+Theme
+=====
+There are quite a lot of themes for options, however I really like this one. [**pelican-svbhack**](https://github.com/giulivo/pelican-svbhack) is a very neat theme for Pelican. However, one big annoying thing is that it opens a new tab or window for links on the left side. I don't know why the author does this, but according to this article ["New Window for a New Link?"](http://www.problogdesign.com/blog-usability/new-window-for-a-new-link/), please give the right back to the user. So simply edit two lines in **pelican-svbhack/templates/base.html**.
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+```html
+        {% for name, link in LINKS %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+        {% for name, link in SOCIAL %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+```
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
-
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex. "it's all in
-chapters 12--14"). Three dots ... will be converted to an ellipsis.
-
-
-
-An h2 header
-------------
-
-Here's a numbered list:
-
- 1. first item
- 2. second item
- 3. third item
-
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
-
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
-
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
-~~~
-define foobar() {
-    print "Welcome to flavor country!";
-}
-~~~
-
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it:
-
-~~~python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print i
-~~~
-
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-### An h3 header ###
-
-Now a nested list:
-
- 1. First, get these ingredients:
-
-      * carrots
-      * celery
-      * lentils
-
- 2. Boil some water.
-
- 3. Dump everything in the pot and follow
-    this algorithm:
-
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
-
-    Do not bump wooden spoon or it will fall.
-
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above). Here's a link to [a
-website](http://foo.bar). Here's a link to a [local
-doc](local-doc.html). Here's a footnote [^1].
-
-[^1]: Footnote text goes here.
-
-Tables can look like this:
-
-size  material      color
-----  ------------  ------------
-9     leather       brown
-10    hemp canvas   natural
-11    glass         transparent
-
-Table: Shoes, their sizes, and what they're made of
-
-(The above is the caption for the table.) Here's a definition list:
-
-apples
-  : Good for making applesauce.
-oranges
-  : Citrus!
-tomatoes
-  : There's no "e" in tomatoe.
-
-Again, text is indented 4 spaces. (Alternately, put blank lines in
-between each of the above definition list lines to spread things
-out more.)
-
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
-
-$$I = \int \rho R^{2} dV$$
-
-Done.
+GitHub
+======
+```
+进入output把自己刚刚建好的username.github.io版本库clone下来：
+cd output
+git clone git@github.com:username/username.github.io.git
+```
+This is not corret, which will create a new directory in your __output__ folder. And when you run **make html**, the git repository will be cleared. The correct way is:
+```
+git init
+git remote add origin YourGitRepo
+git push origin master
+```
+Of course, the assumption is that your SSH is set correctly.
